@@ -5,16 +5,18 @@ import { BrowserRouter,Routes,Route,Navigate} from 'react-router-dom';
 import Home from './pages/Home';
 import Post from './pages/Post';
 import Register from './pages/Register';
+import Reset from './pages/Reset';
 
 function App() {
   // const Navigate = useNavigate()
-  const user = true;
+  const user = false;
   return (
     <BrowserRouter>
     <div className="app">
     <Navbar user={user}/>
     <Routes>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/recovery' element={<Reset/>}/>
       <Route path='/' element={<Home/>}/>
       <Route path='/login' element={user ? <Navigate to='/' replace={true}/> : <Login/>}/>
       <Route path='/post/:id' element={user ? <Post/> : <Navigate to='/login' replace={true}/>}/>
