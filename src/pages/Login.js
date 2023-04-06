@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const Login = () => {
+
+    const google = () =>{
+       window.open("http://localhost:3001/auth/google","_self")
+    }
   return (
     <div className='login'>
         <h1 className='loginTitle'>Choose a Login Method</h1>
         <div className='wrapper'>
             <div className='left'>
-                <div className='loginButton google'>
+                <div className='loginButton google' onClick={google}>
                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU' alt='' className='icon'/>
                     Google
                 </div>

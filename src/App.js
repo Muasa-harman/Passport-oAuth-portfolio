@@ -6,10 +6,33 @@ import Home from './pages/Home';
 import Post from './pages/Post';
 import Register from './pages/Register';
 import Reset from './pages/Reset';
+import { useEffect, useState } from 'react';
 
 function App() {
   // const Navigate = useNavigate()
-  const user = false;
+  const [user,setUser] = useState(null);
+
+  useEffect(()=>{
+    const getUser = () =>{
+      fetch("http://localhost:5000/auth/login/success",{
+        method:"GET",
+        credentials:"include",
+        headers: {
+          Accept: "application/json",
+          "Access-control-Allow-Credentials":true,
+        },
+      }).then((response)=>{
+        if(response.status === 200) return response.json();
+        throw new Error ("authentication has failed!")
+      }).then(resObject=>{
+        setUser(resObject.user);
+      }).catch((error)=>{
+        console.log(error);
+      });
+    }
+    getUser();
+  },[]);
+  console.log(user)
   return (
     <BrowserRouter>
     <div className="app">

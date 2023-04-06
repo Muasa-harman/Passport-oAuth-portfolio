@@ -115,6 +115,18 @@
     text-decoration: none;
     color: inherit;
 }
+.left{
+    padding: 20px;
+}
+
+.right{
+    padding: 20px;
+}
+
+.line{
+    height: 0.5px;
+    width: 300px;
+}
 .text-gray{
     color: gray;
     font-size: small;
