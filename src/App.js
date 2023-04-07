@@ -19,15 +19,16 @@ function App() {
         credentials:"include",
         headers: {
           Accept: "application/json",
-          "Access-control-Allow-Credentials":true,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials":true,
         },
       }).then((response)=>{
         if(response.status === 200) return response.json();
         throw new Error ("authentication has failed!")
       }).then(resObject=>{
         setUser(resObject.user);
-      }).catch((error)=>{
-        console.log(error);
+      }).catch((err)=>{
+        console.log(err);
       });
     }
     getUser();

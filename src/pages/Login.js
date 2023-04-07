@@ -1,9 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
 const Login = () => {
 
     const google = () =>{
-       window.open("http://localhost:3001/auth/google","_self")
+       window.open("http://localhost:5000/auth/google","_self")
+       console.log(window.open)
+    }
+
+    const github = () =>{
+        window.open("http://localhost:5000/auth/github","_self")
+    }
+
+    const facebook = () =>{
+        window.open("http://localhost:5000/auth/facebook","_selt")
     }
   return (
     <div className='login'>
@@ -14,11 +24,11 @@ const Login = () => {
                     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5q0FP74VV9wbfwP378_7kj7iDomHuKrxkXsxDdUT28V9dlVMNUe-EMzaLwaFhneeuZI&usqp=CAU' alt='' className='icon'/>
                     Google
                 </div>
-                <div className='loginButton facebook'>
+                <div className='loginButton facebook' onClick={facebook}>
                     <img src='https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg' alt='' className='icon'/>
                     FaceBook
                 </div>
-                <div className='loginButton github'>
+                <div className='loginButton github' onClick={github}>
                     <img src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' alt='' className='icon'/>
                     Github
                 </div>
